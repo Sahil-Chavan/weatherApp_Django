@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Weather App</title>
+    <style>
+        html,
+        body.background {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        .hero {
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            position:relative;
+        }
+
+        .hero::before {
+            background-image: url({% static 'sky.jpg' %} );
+            background-size: cover;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 148%;
+            z-index: -2;
+            opacity: 0.3;
+        }
+
+        .concss {
+            background-color: rgba(100, 149, 237, .3);
+
+        }
+
+        p.titlecss {
+            padding-top: 1rem;
+        }
+
+        div.city {
+
+            width: 25%;
+        }
+
+        div.citycon {
+            padding: 3rem;
+        }
+
+        input.cityinput:hover {
+            border-color: blue;
+            ;
+        }
+
+        .cityinput {
+            background-color: rgba(100, 149, 237, .3);
+        }
+        .flexboxcol{
+            background-color: rgba(91, 192, 222,.3)
+        }
+
+        * {
+
+            box-sizing: border-box;
+        }
+    </style>
+
+
+</head>
+
+<body class="background">
+    <div class="hero">
+        <div class="container-fluid concss">
+            <p class="text-center display-2 align-middle titlecss">Welcome to WeatherApp</p>
+            <h5 class="text-center align-middle" style="padding: .5rem;"> Check What's the Weather Like....</h5>
+        </div>
+        <div style="width:100%;">
+        <form action="logout" method="GET">
+        <button type="submit"  class="btn btn-outline-primary" style="position:absolute; right:20px; width:120px;height:40px;top:190px">Logout</button>
+        </form>
+        </div>
+        <div class="container-fluid citycon">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group mb-3 city mx-auto input-group-lg">
+                    <input type="text" name="city" class="form-control cityinput" placeholder='Your Location'
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-info " type="submit" id="button-addon2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="container-fluid citycon">
+            <div class="card mb-3 mx-auto cityinput" style="width: 420px; height:250px">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="http://openweathermap.org/img/w/{{ data.icon }}.png" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body" >
+                            <h3 class="card-title">{{ data.city }}</h3>
+                            <h5 class="card-text">Current Temp::{{ data.temp }}°C</h5>
+                            <h5 class="card-text">Min Temp::{{ data.temp_min }}°C</h5>
+                            <h5 class="card-text">Max Temp::{{ data.temp_max }}°C</h5>
+                            <h5 class="card-text">Pressure::{{ data.pressure }}</h5>
+                            <h5 class="card-text">Description::{{ data.des }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="d-flex bd-highlight flex-row justify-content-start flex-wrap cityinput" style="padding: 0% 4%">
+        {% if alldata %}
+            {% for a in alldata %}
+            <div class="card mb-3 flexboxcol" style="width: 420px; height:250px; margin:2rem;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="http://openweathermap.org/img/w/{{ a.icon }}.png" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                          <h3 class="card-title">{{ a.city }}</h3>
+                            <h5 class="card-text">Current Temp::{{ a.temp }}°C</h5>
+                            <h5 class="card-text">Min Temp::{{ a.temp_min }}°C</h5>
+                            <h5 class="card-text">Max Temp::{{ a.temp_max }}°C</h5>
+                            <h5 class="card-text">Pressure::{{ a.pressure }}</h5>
+                            <h5 class="card-text">Description::{{ a.des }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             {% endfor %}
+             {% else %}
+
+             {% endif %}
+               
+               {% if error %}
+               <script>
+               alert("{{ error }}")
+               </script>
+               
+               
+               {% endif %}
+
+             
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

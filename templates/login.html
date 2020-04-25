@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LOGIN AND REGISTER</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+
+
+
+
+  <style>
+    /**
+ * General variables
+ */
+    /**
+ * General configs
+ */
+    .btn {
+      background-color: #9f1c32
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      line-height: 1em;
+      /* background: #1a2a6c;  /* fallback for old browsers */
+      /* background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
+      /*background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      /*
+background: #1a2a6c;  /* fallback for old browsers */
+      /*background: -webkit-linear-gradient(to right, #b21f1f,#1a2a6c,#fdbb2d);  /* Chrome 10-25, Safari 5.1-6 */
+      /*background: linear-gradient(to right, #1a2a6c,#b21f1f); W3C, IE 10+ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
+
+      /* 
+background: #23074d; 
+background: -webkit-linear-gradient(to right, #cc5333, #23074d);  
+background: linear-gradient(to right, #cc5333, #23074d);  */
+
+
+
+    }
+
+    button {
+      background-color: transparent;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+    }
+
+    input {
+      background-color: transparent;
+      padding: 0;
+      border: 0;
+      outline: 0;
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+    }
+
+    input::-webkit-input-placeholder {
+      font-size: 0.85rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      color: #ccc;
+    }
+
+    input::-moz-placeholder {
+      font-size: 0.85rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      color: #ccc;
+    }
+
+    input:-ms-input-placeholder {
+      font-size: 0.85rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      color: #ccc;
+    }
+
+    input::-ms-input-placeholder {
+      font-size: 0.85rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      color: #ccc;
+    }
+
+    input::placeholder {
+      font-size: 0.85rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      color: #ccc;
+    }
+
+    html,
+    body {
+
+      margin: 0;
+
+      padding: 0;
+    }
+
+    .background {
+
+      position:
+        absolute;
+
+      display:
+        block;
+
+      top: 0;
+
+      left: 0;
+
+      z-index: -1;
+    }
+
+
+    /**
+ * Bounce to the left side
+ */
+    @-webkit-keyframes bounceLeft {
+      0% {
+        -webkit-transform: translate3d(100%, -50%, 0);
+        transform: translate3d(100%, -50%, 0);
+      }
+
+      50% {
+        -webkit-transform: translate3d(-30px, -50%, 0);
+        transform: translate3d(-30px, -50%, 0);
+      }
+
+      100% {
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+      }
+    }
+
+    @keyframes bounceLeft {
+      0% {
+        -webkit-transform: translate3d(100%, -50%, 0);
+        transform: translate3d(100%, -50%, 0);
+      }
+
+      50% {
+        -webkit-transform: translate3d(-30px, -50%, 0);
+        transform: translate3d(-30px, -50%, 0);
+      }
+
+      100% {
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+      }
+    }
+
+    /**
+ * Bounce to the left side
+ */
+    @-webkit-keyframes bounceRight {
+      0% {
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+      }
+
+      50% {
+        -webkit-transform: translate3d(calc(100% + 30px), -50%, 0);
+        transform: translate3d(calc(100% + 30px), -50%, 0);
+      }
+
+      100% {
+        -webkit-transform: translate3d(100%, -50%, 0);
+        transform: translate3d(100%, -50%, 0);
+      }
+    }
+
+    @keyframes bounceRight {
+      0% {
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+      }
+
+      50% {
+        -webkit-transform: translate3d(calc(100% + 30px), -50%, 0);
+        transform: translate3d(calc(100% + 30px), -50%, 0);
+      }
+
+      100% {
+        -webkit-transform: translate3d(100%, -50%, 0);
+        transform: translate3d(100%, -50%, 0);
+      }
+    }
+
+    /**
+ * Show Sign Up form
+ */
+    @-webkit-keyframes showSignUp {
+      100% {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes showSignUp {
+      100% {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    /**
+ * Page background
+ */
+    .user {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+       background: url("https://goo.gl/YRxqs1") no-repeat center; 
+      background-size: cover;
+    }
+
+    .user_options-container {
+      position: relative;
+      width: 80%;
+    }
+
+    .user_options-text {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      width: 100%;
+      background-color: rgba(34, 34, 34, 0.85);
+      border-radius: 3px;
+    }
+
+    /**
+ * Registered and Unregistered user box and text
+ */
+    .user_options-registered,
+    .user_options-unregistered {
+      width: 50%;
+      padding: 75px 45px;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .user_registered-title,
+    .user_unregistered-title {
+      margin-bottom: 15px;
+      font-size: 1.66rem;
+      line-height: 1em;
+    }
+
+    .user_unregistered-text,
+    .user_registered-text {
+      font-size: 0.83rem;
+      line-height: 1.4em;
+    }
+
+    .user_registered-login,
+    .user_unregistered-signup {
+      margin-top: 30px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 10px 30px;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1em;
+      letter-spacing: 0.2rem;
+      -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    .user_registered-login:hover,
+    .user_unregistered-signup:hover {
+      color: rgba(34, 34, 34, 0.85);
+      background-color: #ccc;
+    }
+
+    /**
+ * Login and signup forms
+ */
+    .user_options-forms {
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      width: calc(50% - 30px);
+      min-height: 420px;
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      -webkit-transform: translate3d(100%, -50%, 0);
+      transform: translate3d(100%, -50%, 0);
+      -webkit-transition: -webkit-transform 0.4s ease-in-out;
+      transition: -webkit-transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+    }
+
+    .user_options-forms .user_forms-login {
+      -webkit-transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    }
+
+    .user_options-forms .forms_title {
+      margin-bottom: 45px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1em;
+      text-transform: uppercase;
+      color: #9f1c32;
+      letter-spacing: 0.1rem;
+    }
+
+    .user_options-forms .forms_field:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+
+    .user_options-forms .forms_field-input {
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      padding: 6px 20px 6px 6px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: gray;
+      letter-spacing: 0.1rem;
+      -webkit-transition: border-color 0.2s ease-in-out;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    .user_options-forms .forms_field-input:focus {
+      border-color: gray;
+    }
+
+    .user_options-forms .forms_buttons {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      margin-top: 35px;
+    }
+
+    .user_options-forms .forms_buttons-forgot {
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: 0.1rem;
+      color: #ccc;
+      text-decoration: underline;
+      -webkit-transition: color 0.2s ease-in-out;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .user_options-forms .forms_buttons-forgot:hover {
+      color: #b3b3b3;
+    }
+
+    .user_options-forms .forms_buttons-action {
+      background-color: #e8716d;
+      border-radius: 3px;
+      padding: 10px 35px;
+      font-size: 1rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      -webkit-transition: background-color 0.2s ease-in-out;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .user_options-forms .forms_buttons-action:hover {
+      background-color: #e14641;
+    }
+
+    .user_options-forms .user_forms-signup,
+    .user_options-forms .user_forms-login {
+      position: absolute;
+      top: 70px;
+      left: 40px;
+      width: calc(100% - 80px);
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, -webkit-transform 0.5s ease-in-out;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, -webkit-transform 0.5s ease-in-out;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.5s ease-in-out;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+    }
+
+    .user_options-forms .user_forms-signup {
+      -webkit-transform: translate3d(120px, 0, 0);
+      transform: translate3d(120px, 0, 0);
+    }
+
+    .user_options-forms .user_forms-signup .forms_buttons {
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+    }
+
+    .user_options-forms .user_forms-login {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /**
+ * Triggers
+ */
+    .user_options-forms.bounceLeft {
+      -webkit-animation: bounceLeft 1s forwards;
+      animation: bounceLeft 1s forwards;
+    }
+
+    .user_options-forms.bounceLeft .user_forms-signup {
+      -webkit-animation: showSignUp 1s forwards;
+      animation: showSignUp 1s forwards;
+    }
+
+    .user_options-forms.bounceLeft .user_forms-login {
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transform: translate3d(-120px, 0, 0);
+      transform: translate3d(-120px, 0, 0);
+    }
+
+    .user_options-forms.bounceRight {
+      -webkit-animation: bounceRight 1s forwards;
+      animation: bounceRight 1s forwards;
+    }
+
+    /**
+ * Responsive 990px
+ */
+    @media screen and (max-width: 990px) {
+      .user_options-forms {
+        min-height: 350px;
+      }
+
+      .user_options-forms .forms_buttons {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+      }
+
+      .user_options-forms .user_forms-login .forms_buttons-action {
+        margin-top: 30px;
+      }
+
+      .user_options-forms .user_forms-signup,
+      .user_options-forms .user_forms-login {
+        top: 40px;
+      }
+
+      .user_options-registered,
+      .user_options-unregistered {
+        padding: 50px 45px;
+      }
+    }
+
+    .sahilcss {
+      position: absolute;
+      top: 10px;
+      font-family: 'Viga', sans-serif;
+      color:#9f1c32;
+    }
+  </style>
+  <script>
+    window.console = window.console || function (t) {};
+  </script>
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+</head>
+
+<body translate="no">
+ 
+
+
+
+  <section class="user">
+    <h3 class= "sahilcss">Welcome to the weather app</h3>
+    <div class="user_options-container">
+
+      <div class="user_options-text">
+        <div class="user_options-unregistered">
+          <h2 class="user_unregistered-title" style="font-family: 'Viga', sans-serif;">Don't have an account?</h2>
+          <p class="user_unregistered-text"></p>
+          <button class="user_unregistered-signup" id="signup-button">Register</button>
+        </div>
+
+        <div class="user_options-registered" style="float: right">
+          <h2 class="user_registered-title" style="font-family: 'Viga', sans-serif;">Have an account?</h2>
+          <p class="user_registered-text"></p>
+          <button class="user_registered-login" id="login-button">Login</button>
+        </div>
+      </div>
+
+      <div class="user_options-forms" id="user_options-forms">
+        <div class="user_forms-login">
+          <h2 class="forms_title">Login</h2>
+          <form class="forms_form" method="POST" action="home">
+            {% csrf_token %}
+            <fieldset class="forms_fieldset">
+              <div class="forms_field">
+                <input type="text" placeholder="Username" class="forms_field-input" name="username" required autofocus />
+              </div>
+              <div class="forms_field">
+                <input type="password" placeholder="Password" class="forms_field-input" name="password" required />
+              </div>
+            </fieldset>
+            <div class="forms_buttons">
+             
+
+
+
+
+              <button class="btn waves-effect waves-light" type="submit" name="login">
+                <font color="white">LOGIN</font>
+                <i class="material-icons right">send</i>
+              </button>
+
+            </div>
+          </form>
+        </div>
+        <div class="user_forms-signup">
+          <h2 class="forms_title" style="margin:0px">Register</h2>
+          <form class="forms_form" method="POST" action="">
+          {% csrf_token %}
+            <fieldset class="forms_fieldset">
+              <div class="forms_field">
+                <input type="text" placeholder="User-ID" class="forms_field-input" name="username" required />
+              </div>
+              <br>
+              <div class="forms_field">
+                <input type="password" placeholder="Password" class="forms_field-input" name="password1" required />
+              </div>
+              <br>
+              <div class="forms_field">
+                <input type="password" placeholder="Re-enter Password" class="forms_field-input" name="password2" required />
+              </div>
+              <br>
+
+
+              <button class="btn waves-effect waves-light" type="submit" name="register"><a
+                  href="register.html">
+                  <font color="white">Register</font>
+                </a>
+                <i class="material-icons right">send</i>
+              </button>
+
+              {% for message in messages%}
+              <script>
+              alert('{{message}}')
+              </script>
+              {% endfor %}
+
+
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <script
+    src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js">
+  </script>
+  <script id="rendered-js">
+    /**
+     * Variables
+     */
+    const signupButton = document.getElementById('signup-button'),
+      loginButton = document.getElementById('login-button'),
+      userForms = document.getElementById('user_options-forms');
+
+    /**
+     * Add event listener to the "Sign Up" button
+     */
+    signupButton.addEventListener('click', () => {
+      userForms.classList.remove('bounceRight');
+      userForms.classList.add('bounceLeft');
+    }, false);
+
+    /**
+     * Add event listener to the "Login" button
+     */
+    loginButton.addEventListener('click', () => {
+      userForms.classList.remove('bounceLeft');
+      userForms.classList.add('bounceRight');
+    }, false);
+    //# sourceURL=pen.js
+  </script>
+ 
+
+ 
+
+
+
+
+
+</body>
+
+</html>
